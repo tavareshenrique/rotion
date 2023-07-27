@@ -1,5 +1,5 @@
 import { app, shell, BrowserWindow } from 'electron';
-import { join } from 'path';
+import * as path from 'node:path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 
 function createWindow(): void {
@@ -9,9 +9,12 @@ function createWindow(): void {
     height: 670,
     show: false,
     autoHideMenuBar: true,
-    // ...(process.platform === 'linux' ? { icon } : {}),
+    backgroundColor: '#14141f',
+    ...(process.platform === 'linux'
+      ? { icon: path.join(__dirname, '../../build/icon.png') }
+      : {}),
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
+      preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false,
     },
   });
@@ -30,8 +33,12 @@ function createWindow(): void {
   if (is.dev && process.env.ELECTRON_RENDERER_URL) {
     mainWindow.loadURL(process.env.ELECTRON_RENDERER_URL);
   } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
   }
+}
+
+if (process.platform === 'darwin') {
+  app.dock.setIcon(path.join(__dirname, '../../resources/icon.png'));
 }
 
 // This method will be called when Electron has finished
