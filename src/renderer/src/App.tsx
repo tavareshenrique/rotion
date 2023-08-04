@@ -1,18 +1,18 @@
 import { Header, Sidebar } from './components';
 
+import { Routes } from './Routes';
+
 import './styles/global.css';
 
 export function App() {
   return (
-    <div className="h-screen w-screen text-rotion-100 flex">
+    <div className="flex w-screen h-screen text-rotion-100">
       <Sidebar />
 
-      <div className="flex-1 flex flex-col max-h-screen">
+      <div className="flex flex-col flex-1 max-h-screen">
         <Header />
 
-        <main className="flex-1 flex- items-center justify-center text-rotion-400">
-          Selecione ou crie um documento
-        </main>
+        <Routes />
       </div>
     </div>
   );
