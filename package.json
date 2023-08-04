@@ -23,6 +23,12 @@
   "dependencies": {
     "@electron-toolkit/preload": "2.0.0",
     "@electron-toolkit/utils": "1.0.2",
+    "@tiptap/extension-document": "^2.0.4",
+    "@tiptap/extension-highlight": "^2.0.4",
+    "@tiptap/extension-placeholder": "^2.0.4",
+    "@tiptap/extension-typography": "^2.0.4",
+    "@tiptap/react": "^2.0.4",
+    "@tiptap/starter-kit": "^2.0.4",
     "clsx": "2.0.0",
     "cmdk": "0.2.0",
     "electron-router-dom": "^1.0.5",
@@ -32,6 +38,7 @@
   "devDependencies": {
     "@electron-toolkit/tsconfig": "1.0.1",
     "@electron/notarize": "1.2.3",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.16.19",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
