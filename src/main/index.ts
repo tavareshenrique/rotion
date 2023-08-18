@@ -5,6 +5,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import { createFileRoute, createURLRoute } from 'electron-router-dom';
 
 import './ipc';
+import './store';
 
 function createWindow(): void {
   // Create the browser window.
