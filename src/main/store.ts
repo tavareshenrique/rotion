@@ -1,7 +1,9 @@
 import Store from 'electron-store';
 
+import { IDocument } from '@shared/types/ipc';
+
 interface IStore {
-  documents: Record<string, unknown>;
+  documents: Record<string, IDocument>;
 }
 
 export const store = new Store<IStore>({
@@ -9,3 +11,5 @@ export const store = new Store<IStore>({
     documents: {},
   },
 });
+
+console.log(store.path);

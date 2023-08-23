@@ -1,4 +1,4 @@
-export interface Document {
+export interface IDocument {
   id: string;
   title: string;
   content?: string;
@@ -7,7 +7,7 @@ export interface Document {
 /**
  * Request
  */
-export type SaveDocumentRequest = Document;
+export type SaveDocumentRequest = IDocument;
 
 export interface FetchDocumentRequest {
   id: string;
@@ -21,13 +21,13 @@ export interface DeleteDocumentRequest {
  * Response
  */
 export interface FetchAllDocumentsResponse {
-  data: Document[];
+  data: IDocument[];
 }
 
 export interface FetchDocumentResponse {
-  data: Document;
+  data: IDocument;
 }
 
 export interface CreateDocumentResponse {
-  data: Document;
+  data: IDocument;
 }
