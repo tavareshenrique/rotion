@@ -6,7 +6,11 @@ import Highlight from '@tiptap/extension-highlight';
 import Typography from '@tiptap/extension-typography';
 import Placeholder from '@tiptap/extension-placeholder';
 
-export function Editor() {
+interface IEditorProps {
+  content: string;
+}
+
+export function Editor({ content }: IEditorProps) {
   const editor = useEditor({
     extensions: [
       Document.extend({
@@ -23,7 +27,7 @@ export function Editor() {
           'before:content-[attr(data-placeholder)] before:text-gray-500 before:h-0 before:float-left before:pointer-events-none',
       }),
     ],
-    content: '<h1>Hello World! 🌎️</h1><p>Meu primeiro documento.</p>',
+    content,
     autofocus: 'end',
     editorProps: {
       attributes: {

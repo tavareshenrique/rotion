@@ -1,6 +1,25 @@
+import { useParams } from 'react-router-dom';
 import { Editor, ToC } from '../components';
+import { useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
 
 export function Document() {
+  const { id } = useParams<{ id: string }>();
+
+  const { data, isFetching } = useQuery(['document', id], async () => {
+    const response = await window.api.fetchDocument({ id: id! });
+
+    return response.data;
+  });
+
+  const inititalContent = useMemo(() => {
+    if (data) {
+      return `<h1>${data.title}</h1>${data.content ?? '<p></p>'}`;
+    }
+
+    return '';
+  }, [data]);
+
   return (
     <main className="flex flex-1 gap-8 px-10 py-12">
       <aside className="sticky top-0 hidden lg:block">
@@ -18,7 +37,7 @@ export function Document() {
       </aside>
 
       <section className="flex flex-col items-center flex-1">
-        <Editor />
+        {!isFetching && data && <Editor content={inititalContent} />}
       </section>
     </main>
   );
