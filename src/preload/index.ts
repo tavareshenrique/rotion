@@ -1,10 +1,13 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import { electronAPI } from '@electron-toolkit/preload';
 
+import { IPC } from '@shared/constants/ipc';
+import { FetchAllDocumentsResponse } from '@shared/types/ipc';
+
 // Custom APIs for renderer
 export const api = {
-  fetchDocuments(): Promise<Array<{ id: string; title: string }>> {
-    return ipcRenderer.invoke('fetch-documents');
+  fetchDocuments(): Promise<FetchAllDocumentsResponse> {
+    return ipcRenderer.invoke(IPC.DOCUMENTS.FETCH_ALL);
   },
 };
 
