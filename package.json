@@ -1,11 +1,11 @@
 {
   "name": "rotion",
   "productName": "Rotion",
-  "version": "1.0.0",
-  "description": "An Electron application with React and TypeScript",
+  "version": "0.0.0",
+  "description": "A Notion alternative written in TypeScript, React, and Electron.",
   "main": "out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://www.electronjs.org",
+  "author": "Henrique Tavares",
+  "homepage": "https:/henriquetavares.com",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
@@ -18,13 +18,14 @@
     "postinstall": "electron-builder install-app-deps",
     "build:win": "npm run build && electron-builder --win --config",
     "build:mac": "electron-vite build && electron-builder --mac --config",
-    "build:linux": "electron-vite build && electron-builder --linux --config"
+    "build:linux": "electron-vite build && electron-builder --linux --config",
+    "release": "electron-builder --publish always"
   },
   "dependencies": {
     "@electron-toolkit/preload": "2.0.0",
     "@electron-toolkit/utils": "1.0.2",
     "@radix-ui/react-collapsible": "1.0.3",
-    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query": "4.32.6",
     "@tiptap/extension-document": "2.0.4",
     "@tiptap/extension-highlight": "2.0.4",
     "@tiptap/extension-placeholder": "2.0.4",
@@ -34,8 +35,10 @@
     "clsx": "2.0.0",
     "cmdk": "0.2.0",
     "electron-router-dom": "1.0.5",
-    "electron-store": "^8.1.0",
+    "electron-store": "8.1.0",
     "phosphor-react": "1.4.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-router-dom": "6.14.2"
   },
   "devDependencies": {
@@ -53,12 +56,10 @@
     "eslint": "8.44.0",
     "eslint-config-henrique": "1.1.0",
     "postcss": "8.4.26",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwind-scrollbar": "^3.0.5",
+    "tailwind-scrollbar": "3.0.5",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
     "vite": "4.4.2",
-    "vite-tsconfig-paths": "^4.2.0"
+    "vite-tsconfig-paths": "4.2.0"
   }
 }
