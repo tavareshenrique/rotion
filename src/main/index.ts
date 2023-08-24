@@ -5,6 +5,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import { createFileRoute, createURLRoute } from 'electron-router-dom';
 
 import { createTray } from './tray';
+import { createShortcuts } from './shortcuts';
 
 import './ipc';
 import './store';
@@ -36,6 +37,7 @@ function createWindow(): void {
   });
 
   createTray(mainWindow);
+  createShortcuts(mainWindow);
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url);
