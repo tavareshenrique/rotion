@@ -4,9 +4,10 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 
 import { createFileRoute, createURLRoute } from 'electron-router-dom';
 
+import { createTray } from './tray';
+
 import './ipc';
 import './store';
-import './tray';
 
 function createWindow(): void {
   // Create the browser window.
@@ -33,6 +34,8 @@ function createWindow(): void {
   mainWindow.on('ready-to-show', () => {
     mainWindow.show();
   });
+
+  createTray(mainWindow);
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url);
