@@ -4,8 +4,6 @@ on:
 
 jobs:
   release:
-    permissions: write-all
-
     # Only run this job on Linux if the tag starts with "v", like: "v1.0.0"
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ${{ matrix.os }}
